@@ -1,0 +1,19 @@
+# ENTRADA FICTICIA SOLO PARA PRUEBAS DEL VALIDADOR. No corresponde a ninguna persona real.
+nombre: "Persona Ejemplo"
+alias: ["P. Ejemplo"]
+estado: desconocido
+menciones:
+  - id: m1
+    documento:
+      fuente: DOJ
+      dataset: "Data Set 0 (ficticio)"
+      id_documento: "EJEMPLO0001"
+      pagina: 3
+      url: "https://www.justice.gov/epstein"
+    cita: "Se acordó reunirse el martes para revisar el calendario."
+    categoria: correspondencia
+    atribucion: "Correo electrónico enviado por un tercero a otro destinatario."
+    contexto: "El nombre aparece en la lista de destinatarios de un correo sobre calendario de reuniones. El texto no describe actividad alguna de la persona."
+    verificacion: documentada
+    posible_homonimo: true
+    contiene_datos_de_victimas: false

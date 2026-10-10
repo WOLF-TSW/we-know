@@ -1,0 +1,25 @@
+:root { --bg:#f6f7fb; --fg:#14213d; --card:#fff; --muted:#5c6477; --acento:#2b59c3; --borde:#dde1ec; --ok:#1f7a4d; --alerta:#a5530a; --mark:#ffe58a; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#0e1424; --fg:#e8ecf7; --card:#171f35; --muted:#9aa4bf; --acento:#7da2ff; --borde:#283250; --ok:#5fd09b; --alerta:#f0a45c; --mark:#5b4a00; } }
+* { box-sizing: border-box; }
+html, body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.5 system-ui, sans-serif; }
+body { padding: env(safe-area-inset-top) 14px env(safe-area-inset-bottom); max-width: 720px; margin: 0 auto; }
+h1 { font-size:1.4rem; margin:.8rem 0 .3rem; } h2 { font-size:1.1rem; } h3 { font-size:1rem; margin:.2rem 0; }
+.aviso { font-size:.85rem; color:var(--muted); background:var(--card); border:1px solid var(--borde); border-radius:10px; padding:.6rem .8rem; }
+form { display:flex; gap:8px; margin:1rem 0 .4rem; }
+input[type=search] { flex:1; padding:.7rem .8rem; border-radius:10px; border:1px solid var(--borde); background:var(--card); color:var(--fg); font-size:1rem; }
+button { padding:.7rem 1rem; border:0; border-radius:10px; background:var(--acento); color:#fff; font-size:1rem; }
+#mas { display:block; width:100%; margin:1rem 0; }
+#estado { color:var(--muted); font-size:.9rem; min-height:1.3em; }
+.tarjeta { background:var(--card); border:1px solid var(--borde); border-radius:12px; padding:.8rem .9rem; margin:.7rem 0; }
+.tarjeta.wiki { border-color:var(--acento); }
+.etiqueta, .meta, small { color:var(--muted); font-size:.8rem; margin:.2rem 0; }
+.mencion { border-top:1px solid var(--borde); padding-top:.6rem; margin-top:.6rem; }
+.chips { display:flex; flex-wrap:wrap; gap:6px; margin:.2rem 0; }
+.chip { font-size:.72rem; padding:.1rem .5rem; border-radius:99px; border:1px solid var(--borde); }
+.chip.ok { color:var(--ok); border-color:var(--ok); } .chip.alerta { color:var(--alerta); border-color:var(--alerta); }
+blockquote { margin:.4rem 0; padding:.2rem .7rem; border-left:3px solid var(--borde); font-size:.92rem; overflow-wrap:anywhere; }
+mark { background:var(--mark); color:inherit; border-radius:3px; padding:0 2px; }
+.pag { color:var(--muted); font-size:.8rem; }
+.acciones { display:flex; gap:14px; flex-wrap:wrap; font-size:.85rem; margin:.4rem 0 0; }
+a { color:var(--acento); } .reporte { color:var(--muted); }
+footer { color:var(--muted); font-size:.75rem; padding:1rem 0 1.5rem; }

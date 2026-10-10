@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Entrada de persona",
+  "description": "Referencia para editores. La validación real la hace scripts/validar_entradas.py.",
+  "type": "object",
+  "required": ["nombre", "estado", "menciones"],
+  "properties": {
+    "nombre": {"type": "string", "minLength": 3},
+    "alias": {"type": "array", "items": {"type": "string"}},
+    "estado": {"enum": ["vivo", "fallecido", "desconocido"]},
+    "menciones": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id","documento","cita","categoria","atribucion","contexto","verificacion","posible_homonimo","contiene_datos_de_victimas"],
+        "properties": {
+          "id": {"type": "string"},
+          "documento": {
+            "type": "object",
+            "required": ["fuente","id_documento","pagina","url"],
+            "properties": {
+              "fuente": {"enum": ["DOJ","COMITE_CAMARA","FBI_VAULT","TRIBUNAL"]},
+              "dataset": {"type": "string"},
+              "id_documento": {"type": "string"},
+              "pagina": {"type": "integer", "minimum": 1},
+              "url": {"type": "string", "format": "uri"}
+            }
+          },
+          "cita": {"type": "string"},
+          "categoria": {"enum": ["registro_de_vuelos","correspondencia","testimonio","agenda_de_contactos","mencion_pasajera","documento_financiero","denuncia_no_verificada","otro"]},
+          "atribucion": {"type": "string", "minLength": 5},
+          "contexto": {"type": "string", "maxLength": 500},
+          "verificacion": {"enum": ["documentada","denuncia_no_verificada","ilegible_ocr"]},
+          "posible_homonimo": {"type": "boolean"},
+          "contiene_datos_de_victimas": {"const": false}
+        }
+      }
+    }
+  }
+}

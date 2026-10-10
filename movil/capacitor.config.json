@@ -1,0 +1,6 @@
+{
+  "appId": "org.archivoswiki.app",
+  "appName": "Archivos Wiki",
+  "webDir": "www",
+  "server": { "androidScheme": "https" }
+}

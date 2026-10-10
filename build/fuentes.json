@@ -1,0 +1,9 @@
+[
+  {
+    "nombre": "epstein-docs",
+    "repo": "epstein-docs/epstein-docs.github.io",
+    "rama": "main",
+    "ruta": "results",
+    "descripcion": "OCR comunitario de documentos publicados (JSON por pagina). Verifica que 'results/' exista; ajusta 'ruta' si cambia."
+  }
+]

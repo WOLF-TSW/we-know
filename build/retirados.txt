@@ -1,0 +1,4 @@
+# Lista de retiro. Una regla por linea.
+#   doc:<id_documento>     excluye el documento completo del indice
+#   texto:<frase>          retira cualquier pagina que contenga la frase (sin acentos, minusculas)
+# Se usa para solicitudes de retiro y para proteger identidades de victimas.

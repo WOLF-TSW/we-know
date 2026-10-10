@@ -1,0 +1,2 @@
+pyyaml>=6.0
+rapidfuzz>=3.0   # opcional: verificación tolerante a errores de OCR

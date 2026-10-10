@@ -1,0 +1,19 @@
+# Copia este archivo como personas/nombre-apellido.yml
+nombre: "Nombre Apellido"
+alias: []                      # variantes del nombre que aparecen en los documentos
+estado: desconocido            # vivo | fallecido | desconocido
+menciones:
+  - id: m1
+    documento:
+      fuente: DOJ              # DOJ | COMITE_CAMARA | FBI_VAULT | TRIBUNAL
+      dataset: "Data Set 8"
+      id_documento: "EFTA00000000"
+      pagina: 1
+      url: "https://www.justice.gov/epstein"
+    cita: "Texto literal corto de la página (máximo 40 palabras)."
+    categoria: mencion_pasajera
+    atribucion: "Quién dice esto en el documento (p. ej. 'correo de X', 'declaración de testigo')."
+    contexto: "Descripción neutral de qué dice el documento, sin conclusiones sobre la persona."
+    verificacion: documentada  # documentada | denuncia_no_verificada | ilegible_ocr
+    posible_homonimo: false
+    contiene_datos_de_victimas: false   # debe ser false; si es true, no se acepta
