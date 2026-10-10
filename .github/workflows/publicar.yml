@@ -1,0 +1,54 @@
+name: Publicar app e índice (GitHub Pages)
+
+on:
+  push:
+    branches: [main]
+    paths: ["app/**", "build/**", "personas/**", "scripts/**", ".github/workflows/publicar.yml"]
+  schedule:
+    - cron: "0 6 * * 1"        # cada lunes: reindexa desde los repos fuente
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  construir:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Validar anotaciones de la wiki
+        run: python scripts/validar_entradas.py personas
+      - name: Clonar repos fuente de GitHub
+        run: python build/clonar_fuentes.py
+      - name: Construir índice de búsqueda
+        run: python build/construir_indice.py --fuentes-dir fuentes --salida site/data
+      - name: Compilar anotaciones de personas
+        run: python build/compilar_personas.py --salida site/data
+      - name: Ensamblar sitio
+        run: |
+          cp -r app/. site/
+          sed -i "s|repoWiki: \"\"|repoWiki: \"${{ github.repository }}\"|" site/config.js
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  desplegar:
+    needs: construir
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.despliegue.outputs.page_url }}
+    steps:
+      - id: despliegue
+        uses: actions/deploy-pages@v4
